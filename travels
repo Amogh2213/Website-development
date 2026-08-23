@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center><img src="https://play-lh.googleusercontent.com/ZjGibBmG_8jLH2kzq_Y7FkzjUC8JPCbN_remtRaT9RZimHR0mA4EQ5yN7ONp5p0xQh3w-tfsfl9BxlmnDrWXrP8"width="110" alt=""><h1>MAHARASHTRA TOURS AND TRAVELS</h1></center>
+    <hr>
+    <center>welcome to our tours and travels.this is the only place where u can book a tour for lower price.book your trip now.
+    <br><br>
+    <button>book now</button>
+    <br><br><hr>
+    here is our websites
+    <br><br>
+    <a href="https://www.thomascook.in" target="_blank" >visit now</a><br><br><hr>
+    here are some of our offers
+    <br><br>
+     <mark>INDIAN</mark> TRIPS
+    <!-- types = A a 1 i I -->
+        <ol type="1">
+        <li>GOA : 3 days,2 nights RS 2,000 per person</li>
+        <li>KERELA : 4 days,3 nights RS 2,200 per person</li>
+        <li>ANDAMAN AND NICOBAR : 6 days,5 nights RS 4,000 per person</li>
+        </ol>
+     <mark>FORIEGN</mark> TRIPS  
+     <!-- types = square circle disc -->
+        <ul type="square">
+        <li>SINGAPORE : 7 days,6 nights RS 10,000 per person</li>
+        <li>USA : 10 days,9 nights RS 22,500 per person</li>
+        <li>EUROPE : 5 days,4 nights RS 11,200 per person</li>
+        </ul>
+        <hr>
+        <table border="5" cellpadding = "17">
+            <tr>
+                <th>FROM</th>
+                <th>TO</th>
+                <th>NO. OF PEOPLE</th>
+            </tr>
+            <tr>
+                <td>pune</td>
+                <td>goa</td>
+                <td>5</td>
+                
+            </tr>
+            <tr>
+                <td>pune</td>
+                <td>kerela</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>pune</td>
+                <td>andaman and NICOBAR</td>
+                <td>13</td>
+            </tr>
+            <td>delhi</td>
+            <td>singapore</td>
+            <td>3</td>
+            <tr>
+                <td>delhi</td>
+                <td>USA</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>delhi</td>
+                <td>europe</td>
+                <td>15</td>
+            </tr>
+        </table>
+        </center>
+</body>
+</html>
