@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body{
+            color: rgb(0,0,0);
+            height: 100vh;
+            background-color: white;
+            font-family: sans-serif;
+            background:url(https://img.magnific.com/free-vector/eye-catching-registration-signup-form-template-web-member-access_1017-60565.jpg?semt=ais_hybrid&w=740&q=80) ;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        h1{
+            padding: 30px;
+            background: linear-gradient(rgb(153,194,255),rgb(20, 182, 194));
+        }
+        button{
+            height:0%;
+            width:px;
+            border: solid rgb(96, 133, 188);
+            background-color: aqua;
+            animation-name: move;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+            
+        }
+        @keyframes move {
+            0%{
+
+            }
+            50%{
+                 
+            }
+            75%{
+                 transform:translateX(--) 
+            }
+            100%{
+               rotate:360deg;
+               border-radius: 100%;
+            }           
+        }
+        </style>
+</head>
+<body>
+    <head>
+        <center>
+            <h1>SIGN UP page </h1>
+            <hr color="black"><br><br>
+            <fieldset>
+                <legend color="black"><i><b>personal information</b></i></legend>
+                <form>
+                    <label><b>name:</b></label>
+                    <input type="text" placeholder="enter your name"><br><br>
+                    <label><b>password:</b></label>
+                    <input type="password" placeholder="enter your password"><br><br>
+                    <label><b>select skill:</b></label>
+                    <input type="checkbox"><i>html <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKS0poNM-y7Rl4pP1afwH-h0tET9qiGGrl_RRxr1kvUA&s=10" width="30"></i>
+                    <input type="checkbox"><i>java <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6olm78fIuahKW9IfbVIzMWfGUHtpgUDB9WZaFqKz3oQ&s=10" width="20"></i>
+                    <input type="checkbox"><i>CSS <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE-bwx6R5tgBPz3VbaPXx-JNxmU974n24UqIvZ19mpJA&s=10" width="50"></i><br><br>
+                    <label><b>select gender:</b></label>
+                    <input type="radio" name="gender"><i>male <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6OaN_UdT6ruEvEbnd2N0bgXOiVP_91bL1DdAShKxNyA&s=10" width="40"></i>
+                    <input type="radio" name="gender"><i>female <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKQjJYzOTinIS88kMUuBSc3DIc-0X9g09JZhMoOQaWNw&s=10" width="20"></i>
+                    <input type="radio" name="gender"><i>robot <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIuMbF6nKBDSqEcUPK9-lOSi6eoMRyDGQtjrNMuXhNaA&s=10" width="20"></i><br><br>
+                    <label><b>select universities:</b></label>
+                    <select>
+                        <option>JUST CHOOSE</option>
+                        <option>IIT Bombay</option>
+                        <option>IIT Madras</option>
+                        <option>MIT ADT</option>
+                    </select><br><br>
+                    <label><b>select your favourite game:</b></label>
+                    <input type="checkbox"><i>valorant <img src="https://i.pinimg.com/736x/cf/ae/88/cfae886e263126f685510e2f45b82970.jpg" width="20"></i>
+                    <input type="checkbox"><i>minecraft <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr4WshlkXQ9zz0eRim9PEO8FeEzqd_QKQsnSzv0zhG2Q&s=10"width="20"></i>
+                    <input type="checkbox"><i>CS2 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfUwcZnCHzsNiLNSJu_VWblcrFghJxOFohf4WzSH03w&s=10" width="20"></i><br><br>
+                    <button onclick="moveBy">submit</button>
+                </form>
+            </fieldset>
+        </center>
+    </head>
+</body>
+</html>
