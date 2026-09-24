@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Agent Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- RESET & VARIABLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: #11141a;
+    color: #ece8e1;
+    overflow-x: hidden;
+    padding-bottom: 60px; /* Space for fixed footer */
+}
+
+/* --- 1. FIXED POSITIONING --- */
+/* Huge background text that stays locked in place while scrolling */
+.bg-watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 15vw;
+    font-weight: 900;
+    color: rgba(255, 70, 85, 0.03); /* Valorant Red with ultra-low opacity */
+    z-index: -1; /* Pushed behind all content */
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* Bottom status bar locked to the viewport viewport */
+.status-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #ff4655; /* Valorant Red */
+    color: #11141a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    z-index: 100;
+}
+
+/* --- 2. STICKY POSITIONING --- */
+/* Header sticks to the top of the screen only when scrolling past it */
+.main-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(17, 20, 26, 0.95);
+    border-bottom: 1px solid rgba(236, 232, 225, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 90;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff4655;
+}
+
+.nav-links a {
+    color: #ece8e1;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff4655;
+}
+
+/* --- 3. RELATIVE & ABSOLUTE POSITIONING --- */
+.gallery-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.gallery-section {
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #ece8e1;
+    border-left: 4px solid #ff4655;
+    padding-left: 15px;
+}
+
+.grid-layout {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* The Parent Container must be RELATIVE */
+.agent-card {
+    position: relative; 
+    width: 300px;
+    height: 400px;
+    background-color: #1f2326;
+    border: 1px solid rgba(236, 232, 225, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.agent-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff4655;
+}
+
+/* Mock background image placement using Absolute */
+.jett-card { background: linear-gradient(rgba(0,0,0,0.4), #1f2326), url('https://placehold.co') center/cover; }
+.reyna-card { background: linear-gradient(rgba(0,0,0,0.4), #1f2326), url('https://placehold.co') center/cover; }
+
+/* Absolute components tied to the inside of the card */
+.agent-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #ff4655;
+    color: #ece8e1;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.agent-role {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.decorative-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background-color: #ff4655;
+    transition: width 0.4s ease;
+}
+
+.agent-card:hover .decorative-line {
+    width: 100%;
+}
+
+/* --- 4. ADVANCED OVERLAPPING WITH ABSOLUTE & Z-INDEX --- */
+.featured-showcase {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.featured-card {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    background: linear-gradient(90deg, #11141a 40%, transparent), url('https://placehold.co') center/cover;
+    border: 1px solid rgba(236, 232, 225, 0.1);
+    padding: 40px;
+}
+
+.featured-info {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 400px;
+    z-index: 10;
+}
+
+.role-tag {
+    color: #ff4655;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.featured-info h3 {
+    font-size: 3rem;
+    margin: 10px 0;
+    letter-spacing: 4px;
+}
+
+/* Tactical Corner Accents using Absolute positioning */
+.corner-accent {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ff4655;
+}
+
+.top-right {
+    top: -5px;
+    right: -5px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.bottom-left {
+    bottom: -5px;
+    left: -5px;
+    border-right: none;
+    border-top: none;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- FIXED POSITION: Background Watermark -->
+    <div class="bg-watermark">VALORANT</div>
+
+    <!-- STICKY POSITION: Header Navigation -->
+    <header class="main-header">
+        <div class="logo">// VAL.GALLERY</div>
+        <nav class="nav-links">
+            <a href="#duelists">Duelists</a>
+            <a href="#initiators">Initiators</a>
+            <a href="#controllers">Controllers</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="gallery-container">
+        
+        <!-- ROW 1: RELATIVE & ABSOLUTE CHARACTER CARDS -->
+        <section class="gallery-section" id="duelists">
+            <h2 class="section-title">// DUELISTS</h2>
+            
+            <div class="grid-layout">
+                <!-- Jett Card -->
+                <div class="agent-card jett-card">
+                    <div class="agent-badge">JETT</div>
+                    <div class="agent-role">DUELIST // KOREA</div>
+                    <div class="decorative-line"></div>
+                </div>
+
+                <!-- Reyna Card -->
+                <div class="agent-card reyna-card">
+                    <div class="agent-badge">REYNA</div>
+                    <div class="agent-role">DUELIST // MEXICO</div>
+                    <div class="decorative-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROW 2: CONTROLLERS WITH OVERLAPPING POSITIONING -->
+        <section class="gallery-section" id="controllers">
+            <h2 class="section-title">// CONTROLLERS</h2>
+            
+            <div class="featured-showcase">
+                <!-- Omen Featured Card -->
+                <div class="featured-card omen-card">
+                    <div class="featured-info">
+                        <span class="role-tag">AGENT 02</span>
+                        <h3>OMEN</h3>
+                        <p>A memory of the past. He hunts in the shadows to rip the world apart.</p>
+                    </div>
+                    <!-- Absolute positioned accent block -->
+                    <div class="corner-accent top-right"></div>
+                    <div class="corner-accent bottom-left"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FIXED POSITION: Footer Status Bar -->
+    <footer class="status-bar">
+        <div class="status-online">● SYSTEM ONLINE</div>
+        <div class="status-version">VER_7.04</div>
+    </footer>
+
+</body>
+</html>
