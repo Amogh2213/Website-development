@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Golden Fork - Menu</title>
+    <style>
+        /* Base Reset & Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: #f4ece1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Menu Card Container */
+        .menu-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 650px;
+            padding: 40px;
+            border: 3px double #c5a059;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Header Elements */
+        .menu-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .restaurant-name {
+            font-size: 2.5rem;
+            color: #2c2c2c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .menu-subtitle {
+            font-style: italic;
+            color: #8c8c8c;
+            font-size: 1rem;
+        }
+
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #c5a059;
+            margin: 15px auto;
+        }
+
+        /* Menu Sections */
+        .menu-section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: #c5a059;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f0e2cc;
+            padding-bottom: 5px;
+        }
+
+        /* Individual Items */
+        .menu-item {
+            margin-bottom: 20px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .item-name {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        /* Dotted line between name and price */
+        .item-dots {
+            flex-grow: 1;
+            border-bottom: 1px dotted #b3b3b3;
+            margin: 0 10px;
+            position: relative;
+            top: -4px;
+        }
+
+        .item-price {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #2c2c2c;
+        }
+
+        .item-description {
+            font-size: 0.9rem;
+            color: #666666;
+            font-style: italic;
+            line-height: 1.4;
+            padding-right: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .menu-card {
+                padding: 20px;
+            }
+            .restaurant-name {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-card">
+        <!-- Header Section -->
+        <div class="menu-header">
+            <h1 class="restaurant-name">The Golden Fork</h1>
+            <p class="menu-subtitle">Fine Dining & Authentic Flavors</p>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Appetizers Section -->
+        <div class="menu-section">
+            <h2 class="section-title">Appetizers</h2>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Bruschetta Al Pomodoro</span>
+                    <span class="item-dots"></span>
+                    <span class="item-price">$12.00</span>
+                </div>
+                <p class="item-description">Grilled rustic bread rubbed with garlic, topped with marinated diced tomatoes, fresh basil, and extra virgin olive oil.</p>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Calamari Fritti</span>
+                    <span class="item-dots"></span>
+                    <span class="item-price">$16.50</span>
+                </div>
+                <p class="item-description">Crispy golden fried squid served with a side of zesty homemade marinara sauce and lemon wedges.</p>
+            </div>
+        </div>
+
+        <!-- Mains Section -->
+        <div class="menu-section">
+            <h2 class="section-title">Main Courses</h2>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Truffle Mushroom Risotto</span>
+                    <span class="item-dots"></span>
+                    <span class="item-price">$24.00</span>
+                </div>
+                <p class="item-description">Creamy Arborio rice simmered with wild forest mushrooms, finished with parmigiano-reggiano and a drizzle of white truffle oil.</p>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Pan-Seared Salmon</span>
+                    <span class="item-dots"></span>
+                    <span class="item-price">$28.50</span>
+                </div>
+                <p class="item-description">Fresh Atlantic salmon filet served over a bed of garlic mashed potatoes, grilled asparagus, and a lemon butter dill sauce.</p>
+            </div>
+        </div>
+
+        <!-- Desserts Section -->
+        <div class="menu-section">
+            <h2 class="section-title">Desserts</h2>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Classic Tiramisu</span>
+                    <span class="item-dots"></span>
+                    <span class="item-price">$9.00</span>
+                </div>
+                <p class="item-description">Layers of espresso-soaked ladyfingers and creamy mascarpone, dusted with rich cocoa powder.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
