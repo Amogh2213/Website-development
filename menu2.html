@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream Shop Menu</title>
+    <style>
+     
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fcf8f2;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #d2691e;
+            text-align: center;
+        }
+
+        
+        h1 + p {
+            font-style: italic;
+            color: #777;
+            text-align: center;
+        }
+
+        
+        p.intro::first-letter{
+            font-size: 2.5em;
+            color: #ff69b4;
+            font-weight: ;
+            float: left;
+            margin-right: 2px;
+            line-height: 1;
+        }
+
+        .menu-container {
+            margin-top: 30px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+       
+        .menu-container > ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu-container li {
+            padding: 12px;
+            margin: 8px 0;
+            border-bottom: 1px dashed #ddd;
+            font-size: 1.1em;
+            transition: all 0.2s ease;
+        }
+
+        
+        .menu-container li:hover {
+            color: #ff1493;
+            background-color: #fff0f5;
+            cursor: pointer;
+            padding-left: 20px;
+        }
+
+       
+        li.special {
+            background-color: #fff9e6;
+            font-weight: bold;
+            color: #d4a373;
+            border-left: 5px solid #ffb703;
+        }
+
+        
+        li.special::after {
+            content: " ⭐ Popular";
+            font-size: 0.8em;
+            color: #ffb703;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>OUR ICE CREAM MENU</h1>
+    <p class="intro">Welcome to our sweet corner! Discover our delicious, handmade ice cream flavours crafted fresh every single day.</p>
+    
+    <div class="menu-container">
+        <h2>Our Flavours</h2>
+        <ul>
+            <li>Classic Vanilla Bean</li>
+            <li class="special">Double Chocolate Fudge</li>
+            <li>Fresh Strawberry Swirl</li>
+            <li>Mint Chocolate Chip</li>
+            <li>Butterscotch</li>
+        </ul>
+    </div>
+
+</body>
+</html>
