@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Digital Zoo Manager</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #eef5ee;
+      margin: 0;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .wrapper {
+      max-width: 650px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1b4332;
+    }
+
+    #zoo-container {
+      background-color: #ffffff;
+      border: 2px solid #52b788;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .animal-zone {
+      background-color: #d8f3dc;
+      border-left: 5px solid #2d6a4f;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background-color: #2d6a4f;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1b4332;
+    }
+
+    #dom-report {
+      margin-top: 20px;
+      background-color: #ffffff;
+      border: 1px solid #b7e4c7;
+      border-radius: 10px;
+      padding: 16px;
+      line-height: 1.6;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <h1>My Digital Zoo Manager</h1>
+
+    <!-- Zoo Container with Animal Zones -->
+    <div id="zoo-container">
+      <div id="savannah-zone" class="animal-zone">Savannah Zone: Lions & Zebras</div>
+      <div id="arctic-zone" class="animal-zone">Arctic Zone: Polar Bears & Penguins</div>
+      <div id="rainforest-zone" class="animal-zone">Rainforest Zone: Parrots & Jaguars</div>
+    </div>
+
+    <button onclick="manageZoo()">Inspect & Update Zoo DOM</button>
+
+    <!-- Area to display DOM node details -->
+    <div id="dom-report">Click the button above to inspect the DOM tree and update the zoo!</div>
+  </div>
+
+  <script>
+    function manageZoo() {
+      // 1. Select elements
+      const zoo = document.getElementById("zoo-container");
+      const arctic = document.getElementById("arctic-zone");
+
+      // 2. Explore Parent, Child, and Sibling nodes
+      const parentId = arctic.parentElement.id;
+      const firstChildText = zoo.firstElementChild.textContent;
+      const prevSiblingText = arctic.previousElementSibling.textContent;
+      const nextSiblingText = arctic.nextElementSibling.textContent;
+
+      // 3. Check Node Types (1 = Element Node, 3 = Text Node)
+      const elementNodeType = zoo.nodeType;
+      const textNodeType = arctic.firstChild.nodeType;
+
+      // 4. Update webpage content and styles through DOM methods
+      arctic.textContent = "Arctic Zone: Polar Bears, Penguins & Snowy Owls (Updated!)";
+      arctic.style.backgroundColor = "#caf0f8";
+      arctic.style.borderLeftColor = "#0077b6";
+      arctic.style.fontWeight = "bold";
+
+      // Display the DOM inspection report on the webpage
+      const report = document.getElementById("dom-report");
+      report.innerHTML =
+        "<strong>DOM Tree Report:</strong><br>" +
+        "• <strong>Parent of Arctic Zone:</strong> #" + parentId + "<br>" +
+        "• <strong>First Child of Zoo:</strong> " + firstChildText + "<br>" +
+        "• <strong>Previous Sibling:</strong> " + prevSiblingText + "<br>" +
+        "• <strong>Next Sibling:</strong> " + nextSiblingText + "<br>" +
+        "• <strong>Zoo Container Node Type:</strong> " + elementNodeType + " (Element Node)<br>" +
+        "• <strong>Arctic Inner Text Node Type:</strong> " + textNodeType + " (Text Node)";
+    }
+  </script>
+
+</body>
+</html>
