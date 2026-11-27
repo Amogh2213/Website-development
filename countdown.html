@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Birthday Countdown Checker</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      max-width: 500px;
+      width: 100%;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      text-align: center;
+    }
+
+    h1 {
+      color: #d62828;
+      margin-top: 0;
+    }
+
+    .box {
+      background: #fff8f5;
+      border-left: 5px solid #f77f00;
+      padding: 12px 16px;
+      margin: 14px 0;
+      border-radius: 8px;
+      text-align: left;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Birthday Countdown Checker</h1>
+
+    <div class="box" id="greetingBox"></div>
+    <div class="box" id="missingDetailsBox"></div>
+    <div class="box" id="daysLeftBox"></div>
+    <div class="box" id="countdownBox"></div>
+  </div>
+
+  <script>
+    // 1. TWO MISSING PARTY DETAILS (undefined and null data types)
+    let partyVenue;          // undefined (not assigned yet)
+    let cakeFlavour = null;  // null (intentionally empty/missing)
+
+    document.getElementById("missingDetailsBox").innerHTML =
+      "<strong>Missing Party Details:</strong><br>" +
+      "• Venue: " + partyVenue + "<br>" +
+      "• Cake Flavour: " + cakeFlavour;
+
+    // 2. SAY HELLO FOR THE TIME OF DAY (if / else if / else)
+    const currentHour = new Date().getHours();
+    let greeting;
+
+    if (currentHour < 12) {
+      greeting = "Good Morning! Ready for the birthday party?";
+    } else if (currentHour < 18) {
+      greeting = "Good Afternoon! Ready for the birthday party?";
+    } else {
+      greeting = "Good Evening! Ready for the birthday party?";
+    }
+
+    document.getElementById("greetingBox").innerHTML =
+      "<strong>Greeting:</strong> " + greeting;
+
+    // 3. TELL HOW MANY DAYS ARE LEFT
+    const daysLeft = 5; // You can change this number to any days remaining
+    document.getElementById("daysLeftBox").innerHTML =
+      "<strong>Days Left:</strong> " + daysLeft + " days until the party!";
+
+    // 4. COUNT DOWN TO THE PARTY (while loop)
+    let count = daysLeft;
+    let countdownText = "<strong>Countdown:</strong><br>";
+
+    while (count >= 1) {
+      countdownText += count + " days to go...<br>";
+      count--;
+    }
+    countdownText += "It's Party Time!";
+
+    document.getElementById("countdownBox").innerHTML = countdownText;
+  </script>
+
+</body>
+</html>
