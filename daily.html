@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Daily Task Organizer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa 0%, #e8eaf6 100%);
+      margin: 0;
+      padding: 30px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .organizer-card {
+      background: #ffffff;
+      max-width: 550px;
+      width: 100%;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #283593;
+      margin-top: 0;
+      margin-bottom: 24px;
+    }
+
+    .section {
+      background: #f5f7ff;
+      border-left: 5px solid #3949ab;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+    }
+
+    .section h3 {
+      margin: 0 0 8px 0;
+      color: #1a237e;
+      font-size: 1.05rem;
+    }
+
+    .section p {
+      margin: 0;
+      color: #333333;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="organizer-card">
+    <h1>My Daily Task Organizer</h1>
+
+    <div class="section">
+      <h3>1. Sorted Task Names (Alphabetical)</h3>
+      <p id="sortedTasks"></p>
+    </div>
+
+    <div class="section">
+      <h3>2. Reversed Task List</h3>
+      <p id="reversedTasks"></p>
+    </div>
+
+    <div class="section">
+      <h3>3. Sorted Task Times (Ascending)</h3>
+      <p id="sortedTimes"></p>
+    </div>
+
+    <div class="section">
+      <h3>4. Mapped Task Times with Labels</h3>
+      <p id="mappedTimes"></p>
+    </div>
+  </div>
+
+  <script>
+    // Original arrays
+    const tasks = ["Workout", "Read a Book", "Coding Practice", "Breakfast", "Clean Room"];
+    const taskTimes =;
+
+    // 1. Sort task names alphabetically using .sort()
+    const sortedTasks = [...tasks].sort();
+    document.getElementById("sortedTasks").textContent = sortedTasks.join(", ");
+
+    // 2. Reverse the task list using .reverse()
+    const reversedTasks = [...sortedTasks].reverse();
+    document.getElementById("reversedTasks").textContent = reversedTasks.join(", ");
+
+    // 3. Sort task times numerically using .sort((a, b) => a - b)
+    const sortedTimes = [...taskTimes].sort(function(a, b) {
+      return a - b;
+    });
+    document.getElementById("sortedTimes").textContent = sortedTimes.join(", ");
+
+    // 4. Add labels to every time value using .map()
+    const labeledTimes = sortedTimes.map(function(time) {
+      return time + " mins";
+    });
+    document.getElementById("mappedTimes").textContent = labeledTimes.join(" | ");
+  </script>
+
+</body>
+</html>
