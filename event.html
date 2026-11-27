@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Event Data Viewer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e3f2fd 0%, #ede7f6 100%);
+      margin: 0;
+      padding: 30px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .viewer-card {
+      background: #ffffff;
+      max-width: 560px;
+      width: 100%;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #311b92;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    #statusMessage {
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      background-color: #fff8e1;
+      color: #f57f17;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .box {
+      background: #f3e5f5;
+      border-left: 5px solid #6a1b9a;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      line-height: 1.6;
+      display: none;
+    }
+
+    .box h3 {
+      margin: 0 0 8px 0;
+      color: #4a148c;
+      font-size: 1.05rem;
+    }
+
+    .box p {
+      margin: 0;
+      color: #222222;
+      word-break: break-word;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #512da8;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #311b92;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="viewer-card">
+    <h1>School Event Data Viewer</h1>
+
+    <div id="statusMessage">Loading school event data from server...</div>
+
+    <div class="box" id="jsonBox">
+      <h3>1. Converted JSON Text (JSON.stringify)</h3>
+      <p id="jsonText"></p>
+    </div>
+
+    <div class="box" id="eventBox">
+      <h3>2. Final Event Details (JSON.parse)</h3>
+      <p id="eventDetails"></p>
+    </div>
+
+    <button onclick="loadEventData()">Reload Event Data</button>
+  </div>
+
+  <script>
+    function loadEventData() {
+      const status = document.getElementById("statusMessage");
+      const jsonBox = document.getElementById("jsonBox");
+      const eventBox = document.getElementById("eventBox");
+
+      // 1. Display loading message and hide old data
+      status.style.display = "block";
+      status.style.backgroundColor = "#fff8e1";
+      status.style.color = "#f57f17";
+      status.textContent = "Loading school event data from server...";
+      jsonBox.style.display = "none";
+      eventBox.style.display = "none";
+
+      // 2. Simulate asynchronous server delay (2 seconds)
+      setTimeout(function () {
+        // Original JavaScript object
+        const schoolEvent = {
+          eventName: "Annual Science & Tech Fair",
+          date: "December 15, 2026",
+          venue: "Main School Auditorium",
+          organizer: "Science Club",
+          participants: 120
+        };
+
+        // 3. Convert event object to JSON text
+        const jsonString = JSON.stringify(schoolEvent);
+
+        // 4. Parse JSON text back into a JavaScript object
+        const parsedEvent = JSON.parse(jsonString);
+
+        // 5. Update status and display final details on the webpage
+        status.style.backgroundColor = "#e8f5e9";
+        status.style.color = "#2e7d32";
+        status.textContent = "Event data loaded successfully!";
+
+        document.getElementById("jsonText").textContent = jsonString;
+
+        document.getElementById("eventDetails").innerHTML =
+          "<strong>Event:</strong> " + parsedEvent.eventName + "<br>" +
+          "<strong>Date:</strong> " + parsedEvent.date + "<br>" +
+          "<strong>Venue:</strong> " + parsedEvent.venue + "<br>" +
+          "<strong>Organizer:</strong> " + parsedEvent.organizer + "<br>" +
+          "<strong>Expected Participants:</strong> " + parsedEvent.participants;
+
+        jsonBox.style.display = "block";
+        eventBox.style.display = "block";
+      }, 2000);
+    }
+
+    // Run automatically when the page opens
+    loadEventData();
+  </script>
+
+</body>
+</html>
