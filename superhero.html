@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Superhero Power Cards</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #ffffff;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+      text-align: center;
+      color: #fca311;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .hero-card {
+      background: #0f3460;
+      border: 2px solid #e94560;
+      border-radius: 16px;
+      padding: 24px;
+      width: 280px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .hero-card h2 {
+      margin-top: 0;
+      color: #fca311;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 12px;
+    }
+
+    .hero-card p {
+      margin: 12px 0;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .power-btn {
+      width: 100%;
+      margin-top: 14px;
+      padding: 10px;
+      background-color: #e94560;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .power-btn:hover {
+      background-color: #d63651;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Superhero Power Cards</h1>
+  <div class="cards-container" id="cardsContainer"></div>
+
+  <script>
+    // 1. Create a Superhero class
+    class Superhero {
+      // 2. Use a constructor and 'this' keyword to store superhero details
+      constructor(name, power, universe, powerLevel) {
+        this.name = name;
+        this.power = power;
+        this.universe = universe;
+        this.powerLevel = powerLevel;
+      }
+
+      // 3. Class method using 'this' to display each hero card
+      displayCard() {
+        return `
+          <div class="hero-card">
+            <h2>${this.name}</h2>
+            <p><strong>Superpower:</strong> ${this.power}</p>
+            <p><strong>Universe:</strong> ${this.universe}</p>
+            <p><strong>Power Level:</strong> ${this.powerLevel}/100</p>
+            <button class="power-btn" onclick="alert('${this.name} activates ${this.power}!')">
+              Activate Power
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    // 4. Create multiple superhero objects
+    const hero1 = new Superhero("Spider-Man", "Web-Slinging & Spider-Sense", "Marvel", 88);
+    const hero2 = new Superhero("Hulk", "Super Strength & very big", "Marvel", 95);
+    const hero3 = new Superhero("Iron Man", "Powered Armor & Genius Intellect", "Marvel", 91);
+
+    // 5. Render each hero card by calling the class method
+    const container = document.getElementById("cardsContainer");
+    container.innerHTML =
+      hero1.displayCard() +
+      hero2.displayCard() +
+      hero3.displayCard();
+  </script>
+
+</body>
+</html>
