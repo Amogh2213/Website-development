@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Favourite Person Profile</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://jsdelivr.net" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .profile-card {
+      width: 100%;
+      max-width: 500px;
+      border: none;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .profile-header {
+      background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .person-name {
+      color: #1e3c72;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-align: center;
+      width: 100%;
+      display: block;
+    }
+
+    .list-group-item {
+      padding: 14px 20px;
+      border-color: #f0f4f8;
+      font-size: 1.05rem;
+    }
+
+    .list-group-item strong {
+      color: #2a5298;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card profile-card">
+    <div class="card-header profile-header text-center">
+      <h3 class="mb-0">My Favourite Person</h3>
+    </div>
+    <div class="card-body p-4">
+      <h4 id="personName" class="card-title text-center person-name mb-4"></h4>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" id="personRole"></li>
+        <li class="list-group-item" id="personCountry"></li>
+        <li class="list-group-item" id="personAchievement"></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // 1. Create an object to store profile information
+    const favouritePerson = {
+      name: "MS Dhoni",
+      role: "a wicket keeper and a mentor",
+      country: "India",
+      "major achievement": "Known as captain cool"
+    };
+
+    // 2. Display properties using DOT NOTATION
+    document.getElementById("personName").innerText = favouritePerson.name;
+    document.getElementById("personRole").innerHTML = "<strong>Profession:</strong> " + favouritePerson.role;
+
+    // 3. Display properties using BRACKET NOTATION
+    document.getElementById("personCountry").innerHTML = "<strong>Country:</strong> " + favouritePerson["country"];
+    document.getElementById("personAchievement").innerHTML = "<strong>Known For:</strong> " + favouritePerson["major achievement"];
+  </script>
+
+</body>
+</html>
